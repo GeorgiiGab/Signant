@@ -38,7 +38,7 @@ public class RegisterStepDef {
 
     @When("the user fills in the registration information")
     public void the_user_fills_in_the_registration_information(Map<String, String> registerInfo) {
-        BrowserUtilities.waitFor(3);
+        BrowserUtilities.waitForPageToLoad(3);
 
         registrationPage.registeringNewUser(registerInfo.get("username"), registerInfo.get("password"), registerInfo.get("firstName"), registerInfo.get("familyName"), registerInfo.get("phoneNumber"));
 
@@ -46,7 +46,7 @@ public class RegisterStepDef {
 
     @Then("the user should be transferred to login page")
     public void the_user_should_be_transferred_to_login_page() {
-      BrowserUtilities.waitFor(3);
+      BrowserUtilities.waitForPageToLoad(3);
 
         String actualTitle = Driver.get().getTitle();
         String expectedTitle = "Log In - Demo App";

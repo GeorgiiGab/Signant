@@ -1,5 +1,6 @@
 package com.signant.step_definitions;
 
+import com.signant.utilities.APIUtilities;
 import com.signant.utilities.ConfigurationReader;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -15,12 +16,9 @@ public class APIReviewUsersStepDef {
     String token;
     Response response;
 
-    @Given("the user is authenticated")
-    public void the_user_is_authenticated() {
-
-        // The token was received manually in Postman
-         token = "MTAwNjY0OTY3NDcwNjU5MzcxNzI0ODkzNDE4NjkyNDMzOTM3OTQ1";
-
+    @Given("the user is correctly authenticated with username {string} and password {string}")
+    public void the_user_is_correctly_authenticated_with_username_and_password(String username, String password) {
+        token = APIUtilities.getToken(username, password);
     }
 
     @When("the user sends correct request")

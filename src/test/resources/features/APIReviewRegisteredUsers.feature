@@ -1,10 +1,10 @@
-
+@wip
 Feature: Reviewing registered users
 
 
 
   Scenario: authenticated users should be able to review registered users
-    Given the user is authenticated
+    Given the user is correctly authenticated with username "Phill" and password "Phill123"
     When the user sends correct request
     Then status code must be 200
 
@@ -18,6 +18,6 @@ Feature: Reviewing registered users
 
 
     Scenario: users sending wrong requests should not be able to review registered users
-      Given the user is authenticated
+      Given the user is correctly authenticated with username "Phill" and password "Phill123"
       When the user sends incorrect request
       Then status code must be 404

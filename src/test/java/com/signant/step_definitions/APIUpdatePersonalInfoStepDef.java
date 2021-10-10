@@ -1,5 +1,6 @@
 package com.signant.step_definitions;
 
+import com.signant.utilities.APIUtilities;
 import com.signant.utilities.ConfigurationReader;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -18,9 +19,10 @@ public class APIUpdatePersonalInfoStepDef {
     String token;
     Response response;
 
-    @Given("the user is authenticated in the system")
-    public void the_user_is_authenticated_in_the_system() {
-       token = "MTAwNjY0OTY3NDcwNjU5MzcxNzI0ODkzNDE4NjkyNDMzOTM3OTQ1";
+    @Given("the user is authenticated in the system with username {string} and password {string}")
+    public void the_user_is_authenticated_in_the_system_with_username_and_password(String username, String password) {
+
+        token = APIUtilities.getToken(username, password);
     }
 
     @When("the user sends correct request to update the personal information")
@@ -38,6 +40,7 @@ public class APIUpdatePersonalInfoStepDef {
         response = given().accept(ContentType.JSON)
                 .and().contentType(ContentType.JSON)
                 .and().pathParam("username", "Phill")
+                .and().header("token", token)
                 .and().body(infoMap)
                 .when().put(url);
 

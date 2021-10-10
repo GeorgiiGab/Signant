@@ -1,3 +1,4 @@
+@wip
 Feature: As a user I should be able to register through web portal
 
   Background:
@@ -18,7 +19,7 @@ Feature: As a user I should be able to register through web portal
 
     Examples:
     |username |password|firstName |familyName|phoneNumber|
-    |Henry    |asd123  |Henry     |Ford      |635254333  |
+    |Helen    |asd123  |Helen     |Hunt      |718114333  |
 
 
 

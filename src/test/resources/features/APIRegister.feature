@@ -1,4 +1,5 @@
-Feature: registering users in using API
+@wip
+Feature: Registering users using API
 
 
 

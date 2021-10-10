@@ -21,11 +21,11 @@ public class APIRegisterStepDef {
          response = given().accept(ContentType.JSON)
                 .and().contentType(ContentType.JSON)
                 .body("{\n" +
-                        "    \"firstname\" : \"John\",\n" +
-                        "    \"lastname\" : \"Dorian\",\n" +
-                        "    \"phone\" : \"47390003\",\n" +
+                        "    \"firstname\" : \"Ville\",\n" +
+                        "    \"lastname\" : \"Haapasalo\",\n" +
+                        "    \"phone\" : \"444499210\",\n" +
                         "    \"password\" : \"qwe123\",\n" +
-                        "    \"username\" : \"John\"\n" +
+                        "    \"username\" : \"Ville1\"\n" +
                         "\n" +
                         "}")
                 .when().post(url);

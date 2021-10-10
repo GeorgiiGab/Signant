@@ -1,12 +1,18 @@
 package com.signant.step_definitions;
 
+import com.signant.utilities.APIUtilities;
+import com.signant.utilities.BrowserUtilities;
 import com.signant.utilities.ConfigurationReader;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.cucumber.java.it.Ma;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.testng.Assert;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import static io.restassured.RestAssured.*;
 
@@ -15,9 +21,11 @@ public class APIReviewPersonalInfo {
     String token;
     Response response;
 
-    @Given("the user is properly authenticated")
-    public void the_user_is_properly_authenticated() {
-       token = "MTAwNjY0OTY3NDcwNjU5MzcxNzI0ODkzNDE4NjkyNDMzOTM3OTQ1";
+    @Given("the user is properly authenticated with username {string} and password {string}")
+    public void the_user_is_properly_authenticated_with_username_and_password(String username, String password) {
+
+        token = APIUtilities.getToken(username, password);
+
     }
 
     @When("the user sends request correctly")

@@ -1,3 +1,4 @@
+@wip
 Feature: As a user I should be able to view my information from main view page
 
   Background:
@@ -6,7 +7,7 @@ Feature: As a user I should be able to view my information from main view page
 
 
   Scenario: view user information
-    And the user enters valid "Gary" and "asd123" and clicks login button
+    And the user enters valid "Phill" and "Phill123" and clicks login button
     Then the user should be able to view his information on the main view page
 
 
